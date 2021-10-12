@@ -3,6 +3,8 @@ import { DATABASE_URL, PORT, NODE_ENV } from "./config/config";
 import { connectToDatabase } from "./database/connection";
 import { printBuyRequest, printSellRequest } from "./utils/xlsx";
 import route from "./api/routes/index";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import logger from './utils/logger'
 
 const app = express();
