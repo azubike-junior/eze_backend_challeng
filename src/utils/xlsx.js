@@ -1,12 +1,12 @@
 import xlsx from "node-xlsx";
 import buyRequestModel from "../database/models/buyRequest";
 import sellRequestModel from "../database/models/sellRequest";
-import logger from './logger'
+import logger from "./logger";
 
-const buyRequestWorksheet = xlsx.parse(`${__dirname}/buy clause.xlsx`);
+const buyRequestWorksheet = xlsx.parse(`${__dirname}/buyclause.xlsx`);
 const buyRequestData = buyRequestWorksheet[0].data; // buy request sheet data
 
-const sellRequestWorksheet = xlsx.parse(`${__dirname}/sell request.xlsx`);
+const sellRequestWorksheet = xlsx.parse(`${__dirname}/sellrequest.xlsx`);
 const sellRequestData = sellRequestWorksheet[0].data; // sell request sheet data
 
 let buyRequest = []; // empty buyRequest array
@@ -68,8 +68,8 @@ export const printBuyRequest = () => {
   }
 
   buyRequestModel.insertMany(buyRequest, (errors, docs) => {
-    logger.error(errors)
-    logger.log(docs)
+    logger.error(errors);
+    logger.log(docs);
   });
 };
 
@@ -108,7 +108,7 @@ export const printSellRequest = () => {
   }
 
   sellRequestModel.insertMany(sellRequest, (errors, docs) => {
-      logger.error(errors);
-      logger.log(docs);
+    logger.error(errors);
+    logger.log(docs);
   });
 };
